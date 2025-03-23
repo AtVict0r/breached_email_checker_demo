@@ -5,21 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Breach Checker</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
-        <h1>Check if Your Email Was Breached</h1>
+        <header>
+            <i class="fas fa-shield-alt logo"></i>
+            <h1>Email Breach Checker</h1>
+            <p class="tagline">Protect your online identity by checking if your email has been compromised.</p>
+        </header>
         <div class="input-group">
             <label for="email">Enter Email Address:</label>
             <input type="email" id="email" placeholder="your.email@example.com">
-            <button onclick="checkBreach()">Check</button>
+            <button onclick="checkBreach()">
+                <span id="check-button-text">Check</span>
+                <span id="loading-spinner" class="spinner" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </span>
+            </button>
         </div>
         <div id="results" class="results-container">
             <h2>Breach Information:</h2>
             <ul id="breach-list"></ul>
-            <p id="no-breaches" style="display:none;">No breaches found for this email address.</p>
-            <p id="error-message" style="display:none; color: red;">An error occurred while checking. Please try again later.</p>
+            <p id="no-breaches" class="message" style="display:none;">
+                <i class="fas fa-check-circle"></i> No known breaches found for this email address.
+            </p>
+            <p id="invalid-email" class="error-message" style="display:none;">
+                <i class="fas fa-exclamation-triangle"></i> Please enter a valid email address.
+            </p>
+            <p id="error-message" class="error-message" style="display:none;">
+                <i class="fas fa-exclamation-triangle"></i> An error occurred while checking. Please try again later.
+            </p>
+            <p id="api-error-message" class="error-message" style="display:none;">
+                <i class="fas fa-exclamation-triangle"></i> API Error: <span id="api-error-details"></span>
+            </p>
         </div>
+        <footer>
+            <p>&copy; 2025 Email Breach Checker | Powered by <a href="https://xposedornot.com/" target="_blank" rel="noopener noreferrer">XposedOrNot API</a></p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
