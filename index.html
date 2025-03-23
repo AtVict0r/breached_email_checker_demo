@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Breach Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Check if Your Email Was Breached</h1>
+        <div class="input-group">
+            <label for="email">Enter Email Address:</label>
+            <input type="email" id="email" placeholder="your.email@example.com">
+            <button onclick="checkBreach()">Check</button>
+        </div>
+        <div id="results" class="results-container">
+            <h2>Breach Information:</h2>
+            <ul id="breach-list"></ul>
+            <p id="no-breaches" style="display:none;">No breaches found for this email address.</p>
+            <p id="error-message" style="display:none; color: red;">An error occurred while checking. Please try again later.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
