@@ -102,10 +102,16 @@ h1 {
 
 #breach-list li {
     background-color: #f9f9f9;
-    padding: 10px;
-    margin-bottom: 8px;
-    border-radius: 4px;
-    border-left: 3px solid #e74c3c;
+    padding: 12px; /* Increased padding */
+    margin-bottom: 10px; /* Increased margin */
+    border-radius: 6px;
+    border-left: 4px solid #e74c3c; /* Slightly thicker border */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Added subtle shadow */
+    transition: background-color 0.3s ease; /* Added transition for hover effect */
+}
+
+#breach-list li:hover {
+    background-color: #f2f2f2; /* Slightly darker on hover */
 }
 
 .message {
