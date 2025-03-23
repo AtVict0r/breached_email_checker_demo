@@ -21,17 +21,23 @@ function checkBreach() {
     request.open('GET', apiUrl);
 
     request.onload = function() {
-        console.log('API Response:', request.responseText); // Added console log for debugging
-        
+        console.log('API Response:', request.responseText); // Keep the console log for debugging
+
         if (request.status >= 200 && request.status < 300) {
             try {
                 const response = JSON.parse(request.responseText);
                 if (response && response.breaches && response.breaches.length > 0) {
-                    response.breaches.forEach(breach => {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = breach;
-                        breachList.appendChild(listItem);
-                    });
+                    // Access the inner array of breach names
+                    const breachNames = response.breaches[0];
+                    if (breachNames && breachNames.length > 0) {
+                        breachNames.forEach(breachName => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = breachName;
+                            breachList.appendChild(listItem);
+                        });
+                    } else {
+                        noBreachesMessage.style.display = 'block';
+                    }
                 } else {
                     noBreachesMessage.style.display = 'block';
                 }
