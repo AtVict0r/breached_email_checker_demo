@@ -12,112 +12,87 @@
         <header>
             <i class="fas fa-shield-alt logo"></i>
             <h1>Email Breach Checker</h1>
-            <p class="tagline">Empowering you with knowledge about online security and data breaches.</p>
+            <p class="tagline">Quickly check if your email has been involved in a data breach.</p>
         </header>
 
-        <section class="explanatory-section">
-            <h2>Understanding the Landscape of Data Breaches</h2>
-            <p>In today's digital world, our personal information is stored across numerous online services. Unfortunately, these services can become targets for cyberattacks, leading to what we call data breaches. These incidents can expose vast amounts of user data, impacting millions of individuals.</p>
+        <section class="main-checker">
+            <h2>Check Your Email Now</h2>
+            <div class="input-group">
+                <label for="email" class="visually-hidden">Enter Email Address</label>
+                <input type="email" id="email" placeholder="your.email@example.com">
+                <button onclick="checkBreach()">
+                    <span id="check-button-text">Check</span>
+                    <span id="loading-spinner" class="spinner" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </button>
+            </div>
+            <div id="results" class="results-container">
+                <h3>Breach Information:</h3>
+                <ul id="breach-list"></ul>
+                <p id="no-breaches" class="message" style="display:none;">
+                    <i class="fas fa-check-circle"></i> No known breaches found for this email address in the data we have access to.
+                </p>
+                <p id="invalid-email" class="error-message" style="display:none;">
+                    <i class="fas fa-exclamation-triangle"></i> Please enter a valid email address.
+                </p>
+                <p id="error-message" class="error-message" style="display:none;">
+                    <i class="fas fa-exclamation-triangle"></i> An error occurred while checking. Please try again later.
+                </p>
+                <p id="api-error-message" class="error-message" style="display:none;">
+                    <i class="fas fa-exclamation-triangle"></i> API Error: <span id="api-error-details"></span>
+                </p>
+            </div>
         </section>
 
         <section class="explanatory-section">
-            <h2>What Types of Information Are Exposed?</h2>
-            <p>The information compromised in a data breach can vary widely depending on the nature of the attacked organization and the attackers' goals. Common types of exposed data include:</p>
-            <ul>
-                <li><strong>Email Addresses:</strong> Often the primary target, as they serve as identifiers for many online accounts.</li>
-                <li><strong>Passwords:</strong> Even if encrypted, exposed passwords can be vulnerable, especially if weak or reused across multiple sites.</li>
-                <li><strong>Usernames:</strong> Used in conjunction with passwords to access accounts.</li>
-                <li><strong>Personal Information:</strong> Names, addresses, phone numbers, dates of birth, and other identifying details.</li>
-                <li><strong>Financial Information:</strong> Credit card numbers, bank account details, and transaction history (though often heavily protected).</li>
-                <li><strong>Medical Records:</strong> Sensitive health information, which can have severe consequences if exposed.</li>
-                <li><strong>Government Identification:</strong> Social Security numbers, driver's license details, passport information.</li>
-                <li><strong>Private Messages and Communications:</strong> Depending on the service, personal conversations and other private data might be exposed.</li>
-            </ul>
+            <h2>Understanding Data Breaches</h2>
+            <p>A data breach occurs when sensitive or confidential information is exposed or stolen...</p>
+            <p>When your email address is involved in a data breach...</p>
         </section>
 
         <section class="explanatory-section">
-            <h2>Consequences of Being Involved in a Data Breach</h2>
-            <p>The consequences of having your information exposed in a data breach can be significant and long-lasting:</p>
+            <h2>Why Check Your Email?</h2>
+            <p>Knowing if your email address has been involved in a data breach allows you to take proactive steps...</p>
             <ul>
-                <li><strong>Identity Theft:</strong> Exposed personal information can be used to impersonate you, open fraudulent accounts, or make unauthorized purchases.</li>
-                <li><strong>Financial Fraud:</strong> Compromised financial details can lead to unauthorized transactions, theft from bank accounts, or credit card fraud.</li>
-                <li><strong>Phishing Attacks:</strong> Your email address being in a breach makes you a more likely target for sophisticated phishing attempts, as attackers may have other details about you.</li>
-                <li><strong>Spam and Malware:</strong> Breached email addresses are often added to spam lists, and attackers may use the information to spread malware.</li>
-                <li><strong>Account Takeover:</strong> If your password is compromised, attackers can gain access to your online accounts, potentially leading to further damage.</li>
-                <li><strong>Reputational Damage:</strong> In some cases, the exposure of certain types of information can harm your personal or professional reputation.</li>
-            </ul>
-        </section>
-
-        <section class="explanatory-section">
-            <h2>Why is Checking for Breaches Important?</h2>
-            <p>Regularly checking if your email address has been involved in a data breach is a crucial step in managing your online security. It allows you to:</p>
-            <ul>
-                <li><strong>Be Aware of Potential Risks:</strong> Knowing about a breach allows you to anticipate potential threats like phishing emails targeting that specific breach.</li>
-                <li><strong>Take Timely Action:</strong> You can promptly change compromised passwords and secure your accounts before they are misused.</li>
-                <li><strong>Understand Your Exposure:</strong> It gives you insight into the extent to which your personal information might be circulating online.</li>
-            </ul>
-        </section>
-
-        <section class="explanatory-section">
-            <h2>How to Protect Yourself Online</h2>
-            <p>Beyond checking for breaches, there are several proactive steps you can take to enhance your online security:</p>
-            <ul>
-                <li><strong>Use Strong, Unique Passwords:</strong> Create complex passwords that are different for each online account. Avoid using personal information or common words.</li>
-                <li><strong>Enable Two-Factor Authentication (2FA):</strong> Whenever possible, enable 2FA for an extra layer of security. This usually involves a code from your phone in addition to your password.</li>
-                <li><strong>Be Cautious of Phishing Attempts:</strong> Be wary of unsolicited emails, messages, or calls asking for personal information. Verify the sender's authenticity before providing any details.</li>
-                <li><strong>Keep Your Software Updated:</strong> Regularly update your operating system, web browser, and other software to patch security vulnerabilities.</li>
-                <li><strong>Use a Password Manager:</strong> Consider using a reputable password manager to securely store and generate strong, unique passwords.</li>
-                <li><strong>Limit the Information You Share:</strong> Be mindful of the personal information you share online and with various services.</li>
-                <li><strong>Review Privacy Settings:</strong> Regularly review and adjust the privacy settings on your social media and other online accounts.</li>
-                <li><strong>Use a Reputable Antivirus and Anti-Malware Software:</strong> Protect your devices from malicious software that can steal your information.</li>
-                <li><strong>Be Careful on Public Wi-Fi:</strong> Avoid accessing sensitive information on unsecured public Wi-Fi networks. Consider using a VPN.</li>
+                <li>Changing your password...</li>
+                <li>Being more cautious...</li>
+                <li>Enabling two-factor authentication...</li>
             </ul>
         </section>
 
         <section class="explanatory-section">
             <h2>How This Checker Works</h2>
-            <p>This tool utilizes the <a href="https://xposedornot.com/" target="_blank" rel="noopener noreferrer">XposedOrNot API</a> to check if your email address has appeared in publicly disclosed data breaches. XposedOrNot is an open-source platform that continuously collects and analyzes information about data breaches from various sources. These sources include publicly reported incidents, databases of compromised accounts that have surfaced online, and other credible intelligence.</p>
-            <p>When you enter your email address, this tool securely sends it to the XposedOrNot API. The API then checks its extensive database of breach information. If your email address is found to be associated with any known breaches, the API returns a list of those breaches (in this case, identifiers related to the accounts in the breach). This process helps you understand if your email has been compromised in the past.</p>
+            <p>This tool utilizes the <a href="https://xposedornot.com/" target="_blank" rel="noopener noreferrer">XposedOrNot API</a> to check...</p>
+            <p>When you enter your email address, this tool securely sends it to the XposedOrNot API...</p>
         </section>
 
         <section class="explanatory-section">
             <h2>Limitations of Breach Checkers</h2>
-            <p>While email breach checkers like this are valuable tools, it's important to understand their limitations:</p>
+            <p>While email breach checkers like this are valuable tools...</p>
             <ul>
-                <li><strong>Not All Breaches Are Publicly Disclosed:</strong> Some data breaches may not be publicly reported or discovered, meaning they might not be included in the databases used by these checkers.</li>
-                <li><strong>Database Coverage Varies:</strong> Different breach databases may have varying levels of coverage. No single database is likely to contain information about every single data breach that has ever occurred.</li>
-                <li><strong>Timing of Data Collection:</strong> There can be a delay between a data breach occurring and the information being added to breach databases.</li>
-                <li><strong>Focus on Email Addresses:</strong> This specific tool checks for breaches associated with email addresses. Other types of data breaches might not be detected here.</li>
+                <li>Not All Breaches Are Publicly Disclosed...</li>
+                <li>Database Coverage Varies...</li>
+                <li>Timing of Data Collection...</li>
+                <li>Focus on Email Addresses...</li>
             </ul>
-            <p>Therefore, while a negative result from this checker is reassuring, it does not guarantee that your information has never been compromised in any way.</p>
+            <p>Therefore, while a negative result...</p>
         </section>
 
-        <div class="input-group">
-            <label for="email">Enter Email Address to Check:</label>
-            <input type="email" id="email" placeholder="your.email@example.com">
-            <button onclick="checkBreach()">
-                <span id="check-button-text">Check</span>
-                <span id="loading-spinner" class="spinner" style="display: none;">
-                    <i class="fas fa-spinner fa-spin"></i>
-                </span>
-            </button>
-        </div>
-
-        <section id="results" class="results-container">
-            <h2>Breach Information:</h2>
-            <ul id="breach-list"></ul>
-            <p id="no-breaches" class="message" style="display:none;">
-                <i class="fas fa-check-circle"></i> No known breaches found for this email address in the data we have access to.
-            </p>
-            <p id="invalid-email" class="error-message" style="display:none;">
-                <i class="fas fa-exclamation-triangle"></i> Please enter a valid email address.
-            </p>
-            <p id="error-message" class="error-message" style="display:none;">
-                <i class="fas fa-exclamation-triangle"></i> An error occurred while checking. Please try again later.
-            </p>
-            <p id="api-error-message" class="error-message" style="display:none;">
-                <i class="fas fa-exclamation-triangle"></i> API Error: <span id="api-error-details"></span>
-            </p>
+        <section class="explanatory-section">
+            <h2>How to Protect Yourself Online</h2>
+            <p>Beyond checking for breaches, there are several proactive steps...</p>
+            <ul>
+                <li>Use Strong, Unique Passwords...</li>
+                <li>Enable Two-Factor Authentication (2FA)...</li>
+                <li>Be Cautious of Phishing Attempts...</li>
+                <li>Keep Your Software Updated...</li>
+                <li>Use a Password Manager...</li>
+                <li>Limit the Information You Share...</li>
+                <li>Review Privacy Settings...</li>
+                <li>Use a Reputable Antivirus...</li>
+                <li>Be Careful on Public Wi-Fi...</li>
+            </ul>
         </section>
 
         <aside class="api-info">
