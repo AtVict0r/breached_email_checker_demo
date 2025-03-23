@@ -21,6 +21,8 @@ function checkBreach() {
     request.open('GET', apiUrl);
 
     request.onload = function() {
+        console.log('API Response:', request.responseText); // Added console log for debugging
+        
         if (request.status >= 200 && request.status < 300) {
             try {
                 const response = JSON.parse(request.responseText);
