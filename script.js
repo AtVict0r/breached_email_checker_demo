@@ -9,6 +9,7 @@ function checkBreach() {
     const invalidEmailMessage = document.getElementById('invalid-email');
     const checkButtonText = document.getElementById('check-button-text');
     const loadingSpinner = document.getElementById('loading-spinner');
+    const resultsContainer = document.getElementById('results'); // Get the results container element
 
     // Clear previous results and hide messages
     breachList.innerHTML = '';
@@ -17,12 +18,13 @@ function checkBreach() {
     apiErrorMessageElement.style.display = 'none';
     invalidEmailMessage.style.display = 'none';
 
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        invalidEmailMessage.style.display = 'flex';
+    if (!email) {
+        alert('Please enter an email address.');
         return;
     }
+
+    // Show the results container before making the API call
+    resultsContainer.style.display = 'block';
 
     // Show loading state
     checkButtonText.style.display = 'none';
