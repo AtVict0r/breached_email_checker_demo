@@ -118,6 +118,7 @@ h1 {
     padding: 20px;
     border-radius: 6px;
     background-color: #f8f9fa; /* Light background for results */
+    display: none; /* Hidden by default */
 }
 
 .results-container h3 {
