@@ -29,7 +29,7 @@ function checkBreach() {
                 if (response && response.breaches && response.breaches.length > 0) {
                     response.breaches.forEach(breach => {
                         const listItem = document.createElement('li');
-                        listItem.textContent = breach.Name;
+                        listItem.textContent = breach;
                         breachList.appendChild(listItem);
                     });
                 } else {
